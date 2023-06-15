@@ -11,21 +11,23 @@ function Cart() {
     const prixBouquet = 15;
 
     return (
-    <ul className='lmj-cart'>
-        <li>
-            {plante1 + " " + prixMonstera + "€"}
-        </li>
-        <li>
-            {plante2 + " " + prixLierre + "€"}
-        </li>
-        <li>
-            {bouquet + " " + prixBouquet + "€"}
-        </li>
-        <li>
-            Total = { prixMonstera + prixLierre + prixBouquet + "€"}
-        </li>
-    </ul>
-
+        <>
+        <ul className='lmj-cart'>
+            <h1>Panier</h1>
+                <li>
+                    {plante1 + " " + prixMonstera + "€"}
+                </li>
+                <li>
+                    {plante2 + " " + prixLierre + "€"}
+                </li>
+                <li>
+                    {bouquet + " " + prixBouquet + "€"}
+                </li>
+                <li>
+                    Total = { prixMonstera + prixLierre + prixBouquet + "€"}
+                </li>
+        </ul>
+        </>
     );
 }
 
