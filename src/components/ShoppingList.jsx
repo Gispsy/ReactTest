@@ -1,11 +1,13 @@
-import { plantList, listCategory } from "../datas/plantList"
+import {listCategory } from "../datas/plantList"
 import React from "react"
-import CareScale from "./CareScale";
+import { PlantItem } from "./PlantItem"
 import '../styles/ShoppingList.css'
 
 function ShoppingList() {
     return (
         <div className="container">
+
+            {/* Panier */}
             <div>
                 {
                     listCategory().map(v =>
@@ -13,20 +15,8 @@ function ShoppingList() {
                     )
 
                 }
-
             </div>
-            <ul className="lmj-plant-list">
-                {plantList.map((plantList, index) => (
-                    <div>
-                        <li data-index={index} className="lmj-plant-item">{plantList.name}
-                            {plantList.isSpecialOffer && <div className="lmj-sales">Soldes</div>}
-                            <CareScale careType='light' scaleValue={plantList.light} />
-                            <CareScale careType='water' scaleValue={plantList.water} />
-                        </li>
-                    </div>
-                ))}
-
-            </ul>
+            <PlantItem />
         </div>
     );
 }

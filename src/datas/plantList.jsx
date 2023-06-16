@@ -6,13 +6,13 @@ export const plantList = [
 		isBestSale: true,
 		isSpecialOffer: true,
 		light: 1,
-		water: 1
+		water: 2
 	},
 	{
 		name: 'ficus lyrata',
 		category: 'classique',
 		id: '2ab',
-		light: 1,
+		light: 2,
 		water: 1
 	},
 	{
@@ -27,8 +27,8 @@ export const plantList = [
 		name: 'yucca',
 		category: 'classique',
 		id: '4kk',
-		light: 1,
-		water: 1
+		light: 2,
+		water: 3
 	},
 	{
 		name: 'olivier',
@@ -64,7 +64,7 @@ export const plantList = [
 		name: 'succulente',
 		category: 'plante grasse',
 		id: '9vn',
-		light: 5,
+		light: 3,
 		water: 1
 	}
 ]
