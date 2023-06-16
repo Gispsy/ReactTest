@@ -1,3 +1,5 @@
+import monstera from '../assets/monstera.jpg'
+
 export const plantList = [
 	{
 		name: 'monstera',
@@ -6,7 +8,8 @@ export const plantList = [
 		isBestSale: true,
 		isSpecialOffer: true,
 		light: 1,
-		water: 2
+		water: 2,
+		cover: monstera
 	},
 	{
 		name: 'ficus lyrata',

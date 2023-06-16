@@ -17,7 +17,8 @@ export function PlantItem(props) {
                         <div>
                             <li key={index} PlantItemValue="name" className="lmj-plant-item">{plantList.name}
                                 {plantList.isSpecialOffer && <div className="lmj-sales">Soldes</div>}
-
+                                <span> {plantList.id}</span>
+                                <img className='lmj-plant-item-cover' src={plantList.cover} alt={`cover`} />
                                 <CareScale careType='light' scaleValue={plantList.light} />
                                 <CareScale careType='water' scaleValue={plantList.water} />
                             </li>
