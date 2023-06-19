@@ -1,0 +1,51 @@
+.lmj-plant-item-cover {
+	height: 150px;
+	max-width: 220px;
+	border-radius: 10px;
+	object-fit: contain;
+}
+
+.lmj-plant-item {
+	/* margin: 10px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	text-transform: capitalize; */
+}
+
+.lmj-plant-item-details {
+	/* display: flex;
+	flex-direction: column; */
+}
+
+.lmj-sales {
+	position: absolute;
+	z-index: 1;
+}
+
+/* indicateurs */
+.lmj-1 {
+	position: absolute;
+	z-index: 1;
+	background-color: rgba(250, 235, 215, 0.765);
+	bottom: 0px;
+}
+
+/* texte */
+.lmj-2 {
+	position: absolute;
+	z-index: 1;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	font-weight: bold;
+	background-color: rgba(245, 245, 220, 0.66);
+}
+
+/* images */
+.lmj-3 {
+	position: absolute;
+	z-index: 0;
+	top: 1px;
+}
