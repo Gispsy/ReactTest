@@ -13,16 +13,9 @@ function App() {
     <>
 
       <Banner />
-      <Cart />
-      <ShoppingList />
-
-    <form onSubmit={handleSubmit}>
-
-      <input type="text" name='my_input' defaultValue='Tapez votre texte' />
-      <button type='submit'>Entrer</button>
-
-    </form>
-    <Footer />
+      <Cart cart={cart} updateCart={updateCart} />
+      <ShoppingList cart={cart} updateCart={updateCart} />
+      <Footer />
     </>
   )
 }

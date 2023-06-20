@@ -1,29 +1,30 @@
 import { useState } from 'react'
 
 function QuestionForm() {
-    const [inputValue, setInputValue] = useState('Entrer votre adresse ici ')
-    const isInputError = inputValue.includes('@')
+    const [inputValue, setInputValue] = useState('Entrer votre adresse mail ici ')
+    const [isInputError, setisInputError] = useState(false)
 
     function checkValue(value) {
-        if (value.includes('@')) {
-            setInputValue('')
-        }
+        return !value.includes('@')
     }
 
     return (
         <div>
-            <textarea
+            <input
+                onBlur={(e) => { setisInputError(checkValue(e.target.value))} }
                 value={inputValue}
                 onChange={(e) => {
                     setInputValue(e.target.value)
-                    checkValue(e.target.value)
+                    // checkValue(e.target.value)
                 }}
             />
             <button onClick={() => alert(inputValue)}>Envoyer</button>
 
+
             {isInputError && (
-                <div>🔥 Vous avez oublier votre @ dans votre adresse mail !</div>
+                <div>🔥 Attention, il n'y a pas d'@, ceci n'est pas une adresse valide !</div>
             )}
+            
         </div>
     )
 }
