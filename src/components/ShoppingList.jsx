@@ -1,28 +1,26 @@
-import {listCategory } from "../datas/plantList"
-import React, { useState } from "react"
-import { PlantItem } from "./PlantItem"
-import '../styles/ShoppingList.css'
+import React from 'react';
+import { listCategory } from '../datas/plantList';
+import PlantItem from './PlantItem';
+import '../styles/ShoppingList.css';
 
-
-function ShoppingList({cart, updateCart}) {
-    const [cart, updateCart] = useState([])
-    
+function ShoppingList({ cart, updateCart }) {
     return (
-        
         <div className="container">
-
-            {/* Panier */}
             <div>
-                {
-                    listCategory().map(v =>
-                        <div>{v}</div>
-                    )
-
-                }
+                {listCategory().map((category, index) => (
+                    <div key={index}>{category}</div>
+                ))}
             </div>
-            <PlantItem />
+            {listCategory().map((category, index) => (
+                <PlantItem
+                    key={index}
+                    cart={cart}
+                    updateCart={updateCart}
+                    category={category}
+                />
+            ))}
         </div>
     );
 }
 
-export default ShoppingList
+export default ShoppingList;
