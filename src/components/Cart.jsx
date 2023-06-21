@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 import '../styles/Cart.css';
+import { plantList } from '../datas/plantList';
 
 function Cart({ cart, updateCart }) {
     const [isReset, setisReset] = useState(false);
     const [isOpen, setisOpen] = useState(true);
 
-    // Plante + prix
-    const plante1 = 'Monstera';
-    const prixMonstera = 8;
-    const plante2 = 'Lierre';
-    const prixLierre = 10;
-    const bouquet = 'Bouquet de fleurs';
-    const prixBouquet = 15;
+    //Total du panier
+    const total = cart.reduce(
+        (acc,planType) => acc + planType.amount * planType.price, 0
+    )
 
     function resetCart() {
-        updateCart(0);
+        updateCart([]);
         setisReset(true);
     }
 
@@ -23,16 +21,15 @@ function Cart({ cart, updateCart }) {
             <button className='lmj-cart-toggle-button' onClick={() => setisOpen(false)}>
                 Fermer
             </button>
+            <h2>Panier</h2>
             <ul className='lmj-cart'>
-                <h2>Panier</h2>
-                <li>
-                    {plante1 + ' ' + prixMonstera * cart + '€'}
-                    <span>{cart}</span>
-                </li>
-                <li>{plante2 + ' ' + prixLierre + '€'}</li>
-                <li>{bouquet + ' ' + prixBouquet + '€'}</li>
-                <li>Total = {prixMonstera * cart + prixLierre + prixBouquet + '€'}</li>
+                {cart.map(({ name, price, amount }, index) => (
+                    <div key={ `${name}-${index}` }>
+                        {name} {price} € x {amount}
+                    </div>
+                ))}
             </ul>
+            <h2>Total = { total }€</h2>
             <button onClick={resetCart}>Vider le panier</button>
         </div>
     ) : (

@@ -6,7 +6,7 @@ import ShoppingList from './ShoppingList';
 import Footer from './Footer';
 
 function App() {
-  const [cart, updateCart] = useState(0);
+  const [cart, updateCart] = useState([]);
 
   return (
     <>

@@ -1,23 +1,26 @@
 import React from 'react';
-import { listCategory } from '../datas/plantList';
+import { listCategory, plantList } from '../datas/plantList';
 import PlantItem from './PlantItem';
 import '../styles/ShoppingList.css';
 
 function ShoppingList({ cart, updateCart }) {
+
     return (
-        <div className="container">
-            <div>
+        <div className='lmj-shopping-list'>
+            <ul>
                 {listCategory().map((category, index) => (
-                    <div key={index}>{category}</div>
+                    <li key={index}>{category}</li>
                 ))}
-            </div>
+            </ul>
             {listCategory().map((category, index) => (
-                <PlantItem
-                    key={index}
-                    cart={cart}
-                    updateCart={updateCart}
-                    category={category}
-                />
+                <div className='lmj-plant-list'>
+                    <PlantItem
+                        key={index}
+                        cart={cart}
+                        updateCart={updateCart}
+                        category={category}
+                    />
+                </div>
             ))}
         </div>
     );

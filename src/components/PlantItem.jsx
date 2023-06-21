@@ -4,7 +4,7 @@ import CareScale from './CareScale';
 import '../styles/PlantItem.css';
 
 function PlantItem({ cart, updateCart, category }) {
-    
+
     const Arrosage = (range) => {
         if (range === 1) {
             alert("Cette plante requiert peu d'arrosage");
@@ -25,7 +25,30 @@ function PlantItem({ cart, updateCart, category }) {
         }
     };
 
+    //Permet de filtre le planList et de l'appeler en simplifier
     const plantsInCategory = plantList.filter((plant) => plant.category === category);
+
+    //categorie
+    const categories = plantList.reduce(
+        (acc, plant) =>
+            acc.includes(plant.category) ? acc : acc.concat(plant.category),
+        []
+    )
+
+    function addtoCart(name, price) {
+        const PlantAdd = cart.find((plant) => plant.name === name)
+        if (PlantAdd) {
+            const cartFiltre = cart.filter(
+                (plant) => plant.name !== name
+            )
+            updateCart([
+                ...cartFiltre,
+                { name, price, amount: PlantAdd.amount + 1 }
+            ])
+        } else {
+            updateCart([...cart, { name, price, amount: 1 }])
+        }
+    }
 
     return (
         <ul className="lmj-plant-list">
@@ -49,6 +72,7 @@ function PlantItem({ cart, updateCart, category }) {
                             src={plant.cover}
                             alt={`${plant.name} cover`}
                         />
+                        <button onClick={() => addtoCart(plant.name, plant.price)}>Ajouter</button>
                     </div>
                 </li>
             ))}
